@@ -1,0 +1,101 @@
+body{
+	 /*background-color: black;*/
+	/*background-color: #0A314F;*/ /*azul*/
+	/*background-color: #70BF59;*/ /*verde*/
+	 margin: 0px 0px 0px 0px;
+	 padding: 0px 0px 0px 0px;
+}
+body,html,label,h1,h2,h3,h4, a{
+	 height:100%;
+	 font-family: 'Helvetica';
+	 /*color: white; */
+	color: black; 
+}
+/*.container{
+ min-height:100%;
+} */
+.backgroundImg{
+	  background: url(../img/endosruedas1577x555.jpg) no-repeat center bottom scroll;
+	  display:block;
+	  height: 555px;
+	  width:100%;
+}
+
+.logo{
+	  background: url(../img/en-dos-ruedas-negro.png) no-repeat center bottom scroll;
+	  display: block;
+	  width: 300px;
+	  height:150px;
+	  position:absolute;
+	  top: 20px;
+}
+.user-menu{
+	background-color: black;	
+}
+.menu {
+	/*background-color: #28B04B; */
+	/*color: white; */
+}
+.navbar{
+	margin-bottom: 20px;
+}
+.text-white{
+	color: white;
+}
+.text-small{
+	font-size:small;
+}
+.info-row{
+ 	background-color: #3D3D3D;	
+}
+
+footer{
+	 display:block;	
+	 height: 80px;
+	 /*background-color: #119149;*/
+	 background-color: #28B04B;
+	 padding-top: 10px;
+}
+
+.divider-vertical {
+    height: 40px;
+    margin: 0 9px;
+    border-left: 1px solid #F2F2F2;
+    border-right: 1px solid #FFF;
+}
+
+/**start image preview on upload files**/
+.prev_container{
+	overflow: auto;
+	width: 300px;
+	height: 135px;
+}
+
+.prev_thumb{
+	margin: 10px;
+	height: 100px;
+}
+
+/**end image preview on upload files**/
+
+label.error{
+	color: red;
+}
+.galery{
+	/*margin: 0px 5px 0px 5px;*/
+	/*width: 350px;*/
+	height: 395px;
+}
+.galeryImg{
+	width: 300px;
+	height: 235px;
+}
+
+.carousel-inner img{
+	width: 100%;
+	
+}
+
+.row.comments label, .row.comments h3{
+	color: #FC9200;
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Endosruedas</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="img/png" href="img/N2RICONO.png"/>
+	<meta name="description" content="Endosruedas: Compra Venta de Bicicletas y Motocicletas" />
+	<meta name="Keywords" content="endosruedas,dos,2,2ruedas,2 ruedas,dosruedas,www.endosruedas.com,www.endosruedas.com.ec,dos ruedas,Ecuador,ecuador,publica,publicar,compra,comprar,venta,vender,bicileta,biciletas,bici,bicis,motocicleta,motocicletas,moto,motos"/>
+	<meta name="robots" content="index,follow">
+  <%= stylesheet_link_tag "application", :media => "all" %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+		<nav class="navbar navbar-inverse transparent-nav menu" role="navigation">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				
+				<div class="navbar-header">
+					
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+						
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						
+					</button>
+					 <a class="navbar-brand" href="/">Endosruedas</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="navbar-menu">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="{{server_root()}}/nuevo/publicar">Publica tu Producto</a>
+						</li>
+						<!-- 		        <li class="divider-vertical"></li> -->
+						<li>
+							<a href="{{server_root()}}/comprar/bicicletas">Galería Bicicletas</a>
+						</li>
+						<!-- 		        <li class="divider-vertical"></li> -->
+						<li>
+							<a href="{{server_root()}}/comprar/motocicletas">Galería Motocicletas</a>
+						</li>
+						<!-- 		        <li class="divider-vertical"></li> -->
+						<li>
+							<!-- <a href="{{server_root()}}/accesorios">Accesorios</a> -->
+						</li>
+						<!-- 		        <li class="divider-vertical"></li> -->
+						<li>
+							<!-- <a href="{{server_root()}}/taller">Taller</a> -->
+						</li>
+						<!-- 		        <li class="divider-vertical"></li> -->
+						<li>
+							<!-- <a href="{{server_root()}}/comunidad">Comunidad</a> -->
+						</li>
+						<!-- 		        <li class="divider-vertical"></li> -->
+						<li>
+							<a href="{{server_root()}}/contactanos">Contáctanos</a>
+						</li>
+						
+						<% if user_signed_in? %>
+
+							<li >
+								<!-- <a href="#">Link</a> -->
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle text-white"  data-toggle="dropdown"><%= current_user.name %> 
+								<b class="caret"></b></a> 
+								<ul class="dropdown-menu">
+									<li>
+										<%= link_to "Perfil", edit_user_registration_path %>
+									</li>
+									<li>
+										<a href="{{server_root()}}/listapublicaciones">Mis Publicaciones</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete %>
+									</li>
+								</ul>
+							</li>
+							<% else %>
+						
+							<li>
+								<%= link_to "Registro", new_user_registration_path, class: "text-white"%>
+							</li>
+							<li>
+								<%= link_to "Login", new_user_session_path, class: "text-white"%>
+							</li>
+						<% end %>
+						
+					</ul>
+					<!-- <form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+						<button type="submit" class="btn btn-default">
+							Submit
+						</button>
+					</form> -->
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		
+		<div class="container">
+			
+			
+			
+			<div class="row">
+				<div class="col-md-6 col-lg-6 hidden-phone">
+					<a href="{{server_root()}}"><div class="logo"></div></a>
+				</div>
+				<!-- <div class="visible-phone">
+					<a href="{{server_root()}}">Inicio</a>
+				</div> -->
+				
+				<div class="col-xs-12 col-sm-offset-5 col-sm-7 content">
+					<div class="col-lg-12">
+	
+					<!-- </div>
+					<div class="col-lg-12"> -->
+						<h3 class="text-right">
+							<p>Publica - Compra - Vende</p> 
+							<p>Todo lo que buscas <strong>EN DOS RUEDAS.</strong> </p>
+						</h3>
+						<h3 class="text-right hidden-phone">
+							Bicicletas y motocicletas.
+						</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+<%= yield %>
+
+
+		<div class="info-row text-white">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-lg-12 hidden-phone">
+						<h5>Vende y compra desde la comodidad de tu hogar con tan solo unos clicks!</h5>
+					</div>
+					<div class="col-md-6 col-lg-6 hidden-phone">
+						<h5><strong>Bicicletas</strong></h5>
+						<ul class="nav text-small">
+							<li>Nuevas</li>
+							<li>Usadas</li>
+							<li>Gt</li>
+							<li>Specialized</li>
+							<li>Trek</li>
+							<li>Otros</li>
+						</ul>
+					</div>
+					<div class="col-md-6 col-lg-6 hidden-phone">
+						<h5><strong>Motocicletas</strong></h5>
+						<ul class="nav text-small">
+							<li>Nuevas</li>
+							<li>Usadas</li>
+							<li>Yamaha</li>
+							<li>Honda</li>
+							<li>Suzuki</li>
+							<li>Otros</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div class="footer-container" >
+				<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+							<p>Queremos darte un excelente servicio </br>
+							envíanos tus comentarios y sugerencias <strong><a href="{{server_root()}}/contactanos">contáctanos!!</a></strong></p>
+					</div>
+					<div class="col-md-6">
+						<span class="text-white text-right">
+							<p>
+								en dos ruedas 2014
+							</p> 
+						</span>
+					</div>
+				</div>
+				</div>
+			</div>
+		</footer>
+
+<%= javascript_include_tag "application" %>
+</body>
+</html>
