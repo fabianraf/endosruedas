@@ -23,11 +23,8 @@ body,html,label,h1,h2,h3,h4, a{
 
 .logo{
 	  background: url(../img/en-dos-ruedas-negro.png) no-repeat center bottom scroll;
-	  display: block;
 	  width: 300px;
-	  height:150px;
-	  position:absolute;
-	  top: 20px;
+	  height:150px;	  
 }
 .user-menu{
 	background-color: black;	
