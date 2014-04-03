@@ -11,7 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140401042338) do
+ActiveRecord::Schema.define(:version => 20140403010300) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "product_type"
+    t.integer  "sort_order"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "title"
+    t.boolean  "new"
+    t.integer  "status"
+    t.string   "type"
+    t.integer  "brand_id"
+    t.integer  "model_id"
+    t.integer  "year"
+    t.string   "city"
+    t.string   "brake"
+    t.integer  "size_id"
+    t.integer  "speed_id"
+    t.decimal  "amount",            :precision => 9, :scale => 2
+    t.text     "description"
+    t.float    "mileage"
+    t.float    "cylinder_capacity"
+    t.string   "color"
+    t.integer  "fuel_id"
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+    t.integer  "category_id"
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -23,6 +54,13 @@ ActiveRecord::Schema.define(:version => 20140401042338) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "user_products", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

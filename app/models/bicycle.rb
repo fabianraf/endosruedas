@@ -1,0 +1,6 @@
+class Bicycle < Product
+
+	
+    
+
+end

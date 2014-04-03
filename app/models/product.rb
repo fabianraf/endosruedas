@@ -1,3 +1,12 @@
 class Product < ActiveRecord::Base
-  # attr_accessible :title, :body
+
+	has_one :user_product
+	has_one :user, :through => :user_product
+	belongs_to :category
+  	attr_accessible :title, :new, :status, :type,   :brand_id, :model_id, :year, :city, :brake, :size_id, :speed_id, :amount, :description, :color
+  	 
+  	validates :title, :brand_id, :model_id, :city, :amount,  :presence => true
+    	validates :new, :inclusion => {:in => [true, false]}
+
+
 end

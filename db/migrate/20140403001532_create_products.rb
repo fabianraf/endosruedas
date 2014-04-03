@@ -1,6 +1,5 @@
 class CreateProducts < ActiveRecord::Migration
   def change
-    'is_new','status', 'type', 'brand', 'model', 'year', 'city', 'brake','size', 'speed','amount', 'description'
     create_table :products do |t|
       t.string "title"
       t.boolean "new"
@@ -15,6 +14,10 @@ class CreateProducts < ActiveRecord::Migration
       t.integer "speed_id"
       t.decimal "amount", :precision => 9, :scale => 2
       t.text "description"
+      t.float "mileage"
+      t.float "cylinder_capacity"
+      t.string "color"
+      t.integer "fuel_id"
       t.timestamps
     end
   end
