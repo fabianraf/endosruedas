@@ -1,0 +1,189 @@
+<% content_for :page_specific_javascript do %>
+<%= javascript_include_tag "js/jquery/jquery.preimage.js" %>
+<script type="text/javascript">
+		
+		$(document).ready(function()
+				{
+					if ($.cookie("tab")=="motorcycle"){
+						$('#motorcicleTab').tab('show');
+					}
+					
+				    $('#bicycleTab').click(function() {
+				    	$.cookie("tab", "bicycle");
+					});
+				    $('#motorcicleTab').click(function() {
+					    $.cookie("tab", "motorcycle");
+					});
+					
+					// preview images
+					$('.file').preimage();
+					$('#previewBicycleGroup').hide();
+					$('.file').change(function() {
+				    	$('#previewBicycleGroup').show();
+					});
+					$('#previewMotorcycleGroup').hide();
+					$('.file').change(function() {
+				    	$('#previewMotorcycleGroup').show();
+					});
+				});
+
+</script>
+<% end %>
+
+<div class="container">
+		
+		<ul class="nav nav-tabs" id="product">
+		  <li class="active" id="bicycleLi"><a  href="#bicycle" data-toggle="tab" id="bicycleTab">Bicicleta</a></li>
+		  <li id="motorcycleLi"><a href="#motorcicle" data-toggle="tab" id="motorcicleTab">Motocicleta</a></li>
+		</ul>
+		
+		<!-- Tab panes -->
+		<div class="tab-content">
+		  <div class="tab-pane active" id="bicycle">
+			<h2>
+			  Publica tu bicicleta
+			</h2>
+		  
+		  <%= form_for([:admin, @bicycle], :url => admin_productos_path(:producto => "bicicleta"), :html => {:class => "form-horizontal"}) do |f| %>
+		    <%= render :partial => 'form', :object => f %>
+		  <% end %>
+		
+			  
+		   </div> <!--  end tab bicycle -->
+		
+			
+		   <div class="tab-pane" id="motorcicle">
+		   
+		   		<h2>
+				  Publica tu motocicleta
+				</h2>
+		   
+
+			  {{ Form::open(array('url' => 'vender/moto' ,'class' => 'form-horizontal' ,'files' => true, 'id'=>'validateForm')) }}
+				
+				<div class="form-group">
+		  		{{ Form::label('title', 'Título', array('class' => 'col-sm-1 control-label')); }}
+			    <div class="col-sm-11">
+			      {{ Form::text('title' , '', array('class' => 'form-control','placeholder'=>'Título del anuncio' )) }}
+			    </div>
+				</div>
+				
+				
+			  <div class="form-group">
+				    
+				    {{ Form::label('type', 'Tipo', array('class' => 'col-sm-1 control-label')); }}
+				    <div class="col-sm-3">
+				      {{ Form::select('type' , array('montañera','carrera', 'paseo', 'bici-cross', 'bmx', 'otros'), '', array('class' => 'form-control')) }}
+				    </div>
+				    {{ Form::label('brand', 'Marca', array('class' => 'col-sm-1 control-label')); }}
+				    <div class="col-sm-3">
+				      {{ Form::text('brand' , '', array('class' => 'form-control','placeholder'=>'Marca' )) }}
+				    </div>
+				    {{ Form::label('model', 'Modelo', array('class' => 'col-sm-1 control-label')); }}
+				    <div class="col-sm-3">
+				      {{ Form::text('model' , '', array('class' => 'form-control','placeholder'=>'Modelo' )) }}
+				    </div>
+			  </div>
+			  
+			  <div class="form-group">
+				    
+					 {{ Form::label('year', 'Año', array('class' => 'col-sm-1 control-label')); }}
+				    <div class="col-sm-3">
+				      {{ Form::select('year' , $yearList, '', array('class' => 'form-control')) }}
+				    </div>
+				    {{ Form::label('cylinder_capacity', 'Cilindraje', array('class' => 'col-sm-1 control-label')); }}
+				    <div class="col-sm-3">
+				      {{ Form::text('cylinder_capacity' , '', array('class' => 'form-control','placeholder'=>'Cilindraje' )) }}
+				    </div>
+				    {{ Form::label('city', 'Ciudad', array('class' => 'col-sm-1 control-label')); }}
+				    <div class="col-sm-3">
+				      {{ Form::text('city' , '', array('class' => 'form-control','placeholder'=>'Ciudad' )) }}
+				    </div>
+			   </div>
+			  
+			  
+			  <div class="form-group">  
+				    {{ Form::label('kilometer', 'Kilometraje', array('class' => 'col-sm-1 control-label')); }}
+				    <div class="col-sm-3">
+				      {{ Form::text('kilometer' , '', array('class' => 'form-control','placeholder'=>'Kilometraje' )) }}
+				    </div>
+				    {{ Form::label('speed', 'Velocidades', array('class' => 'col-sm-1 control-label')); }}
+				    <div class="col-sm-3">
+				      {{ Form::text('speed' , '', array('class' => 'form-control','placeholder'=>'Velocidades' )) }}
+				    </div>
+				    {{ Form::label('gas', 'Combustible', array('class' => 'col-sm-1 control-label')); }}
+				    <div class="col-sm-3">
+				      {{ Form::text('gas' , '', array('class' => 'form-control','placeholder'=>'Combustible' )) }}
+				    </div>
+
+			  </div>
+
+			  <div class="form-group">  
+				    {{ Form::label('color', 'Color', array('class' => 'col-sm-1 control-label')); }}
+				    <div class="col-sm-3">
+				      {{ Form::text('color' , '', array('class' => 'form-control','placeholder'=>'Color' )) }}
+				    </div>
+				    {{ Form::label('amount', 'Precio', array('class' => 'col-sm-1 control-label')); }}
+				    <div class="col-sm-3">
+				      {{ Form::text('amount' , '', array('class' => 'form-control','placeholder'=>'Precio' )) }}
+				    </div>
+				    {{ Form::label('is_new', 'Articulo', array('class' => 'col-sm-1 control-label')); }}
+				    <div class="col-sm-3">
+				      {{ Form::select('is_new' , $is_new_options, '', array('class' => 'form-control' )) }}
+				    </div>
+			  </div>
+			  
+			  <div class="form-group">  
+			    {{ Form::label('imagen', '', array('class' => 'col-sm-1 control-label')); }}
+			    <div class="col-sm-3">
+			      {{ Form::file('files[picture1]', array('multiple'=>true, 'id' => 'file_1', 'class'=>"file" )); }}
+			    </div>
+			    {{ Form::label('', '', array('class' => 'col-sm-1 control-label')); }}
+			    <div class="col-sm-3">
+			      {{ Form::file('files[picture2]', array('multiple'=>true, 'id' => 'file_2','class'=>"file" )) }}
+			    </div>
+			    {{ Form::label('', '', array('class' => 'col-sm-1 control-label')); }}
+			    <div class="col-sm-3">
+			      {{ Form::file('files[picture3]', array('multiple'=>true, 'id' => 'file_3' ,'class'=>"file" )); }}
+			    </div>
+			  </div>
+			  <div class='hidden-phone hidden-tablet form-group ' id="previewMotorcycleGroup">
+			  	  <div class="col-sm-1">
+			  	  Imagenes
+			  	  </div>
+				  <div class="col-sm-3">
+					  <div id="prev_file_1"></div><br/>
+				  </div>
+				  <div class="col-sm-1">
+			  	  </div>
+				  <div class="col-sm-3">
+				  	<div id="prev_file_2"></div><br/>
+				  </div>
+				  <div class="col-sm-1">
+			  	  </div>
+				  <div class="col-sm-3">
+				  	<div id="prev_file_3"></div><br/>
+				  </div>
+			  </div>
+			  <div class="form-group">
+			    {{ Form::label('description', '', array('class' => 'col-sm-1 control-label')); }}
+			    <div class="col-sm-11">
+			      {{ Form::textarea('description' , '', array('class' => 'form-control','placeholder'=>'Pon aquí información como número de velocidades, marca de freno, aros, para hombre/mujer , tamaño, cuadro, etc' )) }}
+			    </div>
+			   
+			  </div>
+			  <div class="form-group">
+			    <div class="col-sm-offset-11 col-sm-1">
+			      <button type="submit" class="btn btn-default">Publicar</button>
+			    </div>
+			  </div>
+			  {{ Form::close() }}
+			
+			
+			
+			
+			</div><!-- end tab motocycle --> 
+		</div>
+	 
+</div>
+

@@ -31,9 +31,11 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="navbar-menu">
 					<ul class="nav navbar-nav">
-						<li>
-							<a href="{{server_root()}}/nuevo/publicar">Publica tu Producto</a>
-						</li>
+						<% if user_signed_in? %>
+							<li>
+	            	<%= link_to "Publica tu Producto", admin_publicar_path %>
+							</li>
+						<% end %>
 						<!-- 		        <li class="divider-vertical"></li> -->
 						<li>
 							<a href="{{server_root()}}/comprar/bicicletas">Galería Bicicletas</a>

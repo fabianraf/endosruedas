@@ -3,7 +3,10 @@ Endosruedas::Application.routes.draw do
   root :to => 'home#index'
   devise_for :users, :controllers => { :sessions => "sessions", :registration => 'registration' }
 
-  
+  namespace :admin do
+      get 'publicar', :to => "products#publish"
+      resources :productos, :to => "products"
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

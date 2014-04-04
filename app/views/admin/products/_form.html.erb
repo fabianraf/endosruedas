@@ -1,0 +1,97 @@
+
+			
+				<div class="form-group">
+					<%= form.label :title, "Título", :class => "col-sm-1 control-label"%>
+			    <div class="col-sm-11">
+						<%= form.text_field :title, :class => "form-control", :placeholder => "Título" %>
+			    </div>
+				</div>
+				
+			  <div class="form-group">
+					<%= form.label :new, "Articulo", :class => "col-sm-1 control-label"%>
+				    <div class="col-sm-3">
+				      <%= form.text_field :new, :class => "form-control" %>
+				    </div>
+						<%= form.label :category_id, "Tipo", :class => "col-sm-1 control-label"%>
+				    <div class="col-sm-3">
+							<%= form.text_field :category_id, :class => "form-control" %>
+				      <!-- {{ Form::select('type' , array('montañera','carrera', 'paseo', 'bici-cross', 'bmx', 'otros'), '', array('class' => 'form-control')) }} -->
+				    </div>
+						<%= form.label :brand_id, "Marca", :class => "col-sm-1 control-label"%>
+				    <div class="col-sm-3">
+							<%= form.text_field :brand_id, :class => "form-control" %>
+				    
+				    </div>
+			  </div>
+			  
+			  <div class="form-group">
+					<%= form.label :model_id, "Modelo", :class => "col-sm-1 control-label"%>
+			    <div class="col-sm-3">
+						<%= form.text_field :model_id, :class => "form-control" %>
+			    </div>
+					<%= form.label :year, "Año", :class => "col-sm-1 control-label"%>
+			    <div class="col-sm-3">
+						<%= form.date_select :year, {:order => [:year], :start_year => Time.now.year, :end_year => 1990, :prompt => {:year => "Selecciona un año"} }, {:class => "form-control"}%>
+
+			    </div>
+					<%= form.label :city, "Ciudad", :class => "col-sm-1 control-label"%>
+			    <div class="col-sm-3">
+						<%= form.text_field :city, :class => "form-control", :placeholder => "Ciudad" %>
+			    </div>
+			  </div>
+			  
+			  
+			  <div class="form-group">  
+					<%= form.label :speed_id, "Velocidades", :class => "col-sm-1 control-label"%>
+				    <div class="col-sm-3">
+							<%= form.text_field :speed_id, :class => "form-control", :placeholder => "Reemplazar por dropdown" %>
+				    </div>
+						<%= form.label :amount, "Precio", :class => "col-sm-1 control-label"%>
+				    <div class="col-sm-3">
+							<%= form.text_field :amount, :class => "form-control", :placeholder => "Precio" %>
+				    </div>
+
+			  </div>
+			  
+			  <div class="form-group">  
+					<%= form.label "Imagenes", :class => "col-sm-1 control-label" %>
+					<% index = 1 %>
+					<%= form.fields_for :bicycle_images do |bi| %>
+						<%= label_tag "file#{index}", "", :class => "col-sm-1 control-label" if index > 1%>
+						<div class="col-sm-3">
+							<%= bi.file_field  :file, :class => "file", :id => "file#{index}" %>
+				      <!-- {{ Form::file('files[picture1]', array('multiple'=>true, 'id' => 'file1', 'class'=>"file" )); }} -->
+				    </div>
+						<% index += 1%>
+					<% end %>
+				</div>
+			  <div class='hidden-phone hidden-tablet form-group ' id="previewBicycleGroup">
+			  	  <div class="col-sm-1">
+			  	  Imagenes
+			  	  </div>
+				  <div class="col-sm-3">
+					  <div id="prev_file1"></div><br/>
+				  </div>
+				  <div class="col-sm-1">
+			  	  </div>
+				  <div class="col-sm-3">
+				  	<div id="prev_file2"></div><br/>
+				  </div>
+				  <div class="col-sm-1">
+			  	  </div>
+				  <div class="col-sm-3">
+				  	<div id="prev_file3"></div><br/>
+				  </div>
+			  </div>
+			  <div class="form-group">
+					<%= form.label :description, "Descripción", :class => "col-sm-1 control-label"%>
+			    <div class="col-sm-11">
+						<%= form.text_area :description, :class => "form-control", :placeholder => "Pon aquí información como número de velocidades, marca de freno, aros, para hombre/mujer , tamaño, cuadro, etc"%>
+			    </div>
+			   
+			  </div>
+			  <div class="form-group">
+			    <div class="col-sm-offset-11 col-sm-1">
+						<%= form.submit "Publicar", :class => "btn btn-default"%>
+			    </div>
+			  </div>
