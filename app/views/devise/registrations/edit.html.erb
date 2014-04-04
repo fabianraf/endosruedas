@@ -1,29 +1,93 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<% content_for :page_specific_javascript do %>
+  <script type="text/javascript">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+    $('#change_password').change(function() {
+        if($(this).is(":checked")) {
+          $('#passwordGroup').show();
+        }else{
+          $('#passwordGroup').hide();
+        }
+                
+    });
+    $('#passwordGroup').hide();
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
-
-  <div><%= f.submit "Update" %></div>
+    </script>
 <% end %>
 
-<h3>Cancel my account</h3>
+<div class="container">
+  
+    <h2>
+      Perfil
+    </h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put , class: "form-horizontal"}) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="form-group">
+          <%= f.label :name, :class => "col-sm-2 control-label" %>
+          <div class="col-sm-4">
+            <%= f.text_field :name, :class => "form-control", :placeholder => "Nombre"%>
+           </div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+          <%= f.label :email, :class => "col-sm-2 control-label" %>
+          <div class="col-sm-4">
+            <%= f.text_field :email, :class => "form-control", :placeholder => "Email"%>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :phone, :class => "col-sm-2 control-label" %>
+          <div class="col-sm-4">
+            <%= f.text_field :phone, :class => "form-control", :placeholder => "Telefono"%>
+          </div>
+          
+          <%= f.label :cellphone, :class => "col-sm-2 control-label" %>
+          <div class="col-sm-4">
+            <%= f.text_field :cellphone, :class => "form-control", :placeholder => "Celular"%>
+          </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Cambiar Password</label>
+            <div class="col-sm-1">
+            <%= check_box_tag :change_password, "Cambiar", false, :id => "change_password" %>
+             </div>
+        </div>
 
-<%= link_to "Back", :back %>
+        <div class="form-group" id="passwordGroup">
+            <div class="form-group">
+              <%= f.label :current_password, "Actual", :class => "col-sm-2 control-label" %>
+              <div class="col-sm-4">
+                <%= f.password_field :current_password, :class => "form-control", :placeholder => "Password Actual"%>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password, "Nuevo", :class => "col-sm-2 control-label" %>
+              <div class="col-sm-4">
+                <%= f.password_field :password, :class => "form-control", :placeholder => "Nuevo Password"%>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password_confirmation, "Repetir", :class => "col-sm-2 control-label" %>
+              <div class="col-sm-4">
+                <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Repetir Nuevo Password"%>
+              </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= f.submit "Actualizar", :class => "btn btn-default" %>
+          </div>
+        </div>
+        
+        <h3>Cancel my account</h3>
+
+        <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+        <%= link_to "Back", :back %>
+
+    <% end %>
+</div>
