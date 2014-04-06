@@ -36,6 +36,10 @@ body,html,label,h1,h2,h3,h4, a{
 .navbar{
 	margin-bottom: 20px;
 }
+
+.right-menu{
+float: right;
+}
 .text-white{
 	color: white;
 }
