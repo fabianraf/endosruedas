@@ -100,3 +100,6 @@ label.error{
 .row.comments label, .row.comments h3{
 	color: #FC9200;
 }
+.small-height{
+	height: 35px;
+}

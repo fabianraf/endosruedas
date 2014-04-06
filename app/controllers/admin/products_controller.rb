@@ -3,10 +3,10 @@ class Admin::ProductsController < Admin::BaseController
   def publish
     #New Bicycle
     @bicycle = Bicycle.new
-    3.times {@bicycle.bicycle_images.build}
+    6.times {@bicycle.bicycle_images.build}
     #New Motorcycle
     @motorcycle = Motorcycle.new
-    3.times {@motorcycle.motorcycle_images.build}
+    6.times {@motorcycle.motorcycle_images.build}
   end
   
   def create
