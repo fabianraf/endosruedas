@@ -31,8 +31,7 @@
 			    </div>
 					<%= form.label :year, "Año", :class => "col-sm-1 control-label"%>
 			    <div class="col-sm-3">
-						<%= form.date_select :year, {:order => [:year], :start_year => Time.now.year, :end_year => 1990, :prompt => {:year => "Selecciona un año"} }, {:class => "form-control"}%>
-
+			    		<%= form.select :year, options_for_select((Time.now.year.to_i.downto(1990)).map {|i| [i,i] }), {:prompt => "Selecciona un año"}, {:class => "form-control"}%>
 			    </div>
 					<%= form.label :city, "Ciudad", :class => "col-sm-1 control-label"%>
 			    <div class="col-sm-3">
