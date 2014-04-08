@@ -46,6 +46,11 @@
 		  
 		  <%= form_for([:admin, @bicycle], :url => admin_productos_path(:producto => "bicicleta"), :html => {:class => "form-horizontal"}) do |f| %>
 		    <%= render :partial => 'form', :object => f %>
+		    <div class="form-group">
+			    <div class="col-sm-offset-11 col-sm-1">
+				<%= f.submit "Publicar", :class => "btn btn-default"%>
+		    </div>
+		  </div>
 		  <% end %>
 		
 			  

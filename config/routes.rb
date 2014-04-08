@@ -7,6 +7,14 @@ Endosruedas::Application.routes.draw do
       get 'publicar', :to => "products#publish"
       resources :productos, :to => "products"
   end
+
+  resources :comprar, :to => "products", :only => [:index] do 
+    collection do
+      get "bicicletas"
+      get "motocicletas"
+    end
+
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
