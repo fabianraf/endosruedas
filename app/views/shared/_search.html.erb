@@ -1,0 +1,36 @@
+<%= form_tag buscar_path, id: "site_wide_search_form", class: "form-horizontal", method: :get do %>
+  <div class="form-group">
+			<%= label_tag "Articulo", "Articulo",{class: "col-sm-1 control-label"} %>
+	    <div class="col-sm-2">
+				<%= select_tag "search_term", {}, {class: "form-control input-sm"} %>
+	    </div>
+			<%= label_tag "marca", "Marca",{class: "col-sm-1 control-label"} %>
+	    <div class="col-sm-2">
+				<%= select_tag "search_term_marca", {}, {class: "form-control input-sm"} %>
+	    </div>
+			<%= label_tag "modelo", "Modelo",{class: "col-sm-1 control-label"} %>
+	    <div class="col-sm-2">
+				<%= select_tag "search_term", {}, {class: "form-control input-sm"} %>
+	    </div>
+			<%= label_tag "tipo", "tipo",{class: "col-sm-1 control-label"} %>
+	    <div class="col-sm-2">
+				<%= select_tag "search_term", {}, {class: "form-control input-sm"} %>
+	    </div>
+			<%= label_tag "ciudad", "Ciudad",{class: "col-sm-1 control-label"} %>
+	    <div class="col-sm-2">
+				<%= text_field_tag "ciudad", "", {class: "form-control input-sm", placeholder: "Ciudad"} %>
+	    </div>
+			<%= label_tag "precio", "Precio",{class: "col-sm-1 control-label"} %>
+	    <div class="col-sm-2">
+				<%= text_field_tag "search_precio", "", {class: "form-control input-sm", placeholder: "Precio"} %>
+	    </div>
+   </div>
+  
+  
+  <div class="form-group">
+    <div class="col-sm-offset-11 col-sm-1">
+			<%= submit_tag "Buscar", class: "btn btn-default"%>
+    </div>
+  </div>
+	
+<% end %>

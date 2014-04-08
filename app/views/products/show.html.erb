@@ -1,0 +1,184 @@
+<div class="container">
+	<div class="row">
+		<h3 class="text-center"><%= @bicycle.title %></h3>
+	</div>
+	<div class="row">
+		 <div class="col-xs-12 col-md-4 col-lg-6">
+	 
+	  <!-- Start Carousel   -->
+			<div id="carousel-home" class="carousel slide" data-ride="carousel">
+			  <!-- Indicators -->
+			  <ol class="carousel-indicators">
+			  	<% @bicycle.bicycle_images.each_with_index do |bicycle_image, index| %>
+				  	<% if index == 0 %>
+				    	<li data-target="#carousel-home" data-slide-to=<%= index %> class="active"></li>
+				    <% else %>
+				    	<li data-target="#carousel-home" data-slide-to=<%= index %> ></li>
+				    <% end %>
+					<% end %>
+			  </ol>
+			
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner">
+			  	<% @bicycle.bicycle_images.each_with_index do |bicycle_image, index| %>
+					<% if index == 0 %>
+				    	<div class="item active">
+				    <% else %>
+				    	<div class="item">
+				    <% end %>
+							<%= image_tag(bicycle_image.file.main.url, class: "img-responsive") %>
+				      <div class="carousel-caption">
+				        <!-- <h3>casa 4</h3> -->
+				      </div>
+				    </div>
+							
+					<% end %>
+			    
+			  </div>
+			 	
+			  <!-- Controls -->
+			  <a class="left carousel-control" href="#carousel-home" data-slide="prev">
+			    <span class="glyphicon glyphicon-chevron-left"></span>
+			  </a>
+			  <a class="right carousel-control" href="#carousel-home" data-slide="next">
+			    <span class="glyphicon glyphicon-chevron-right"></span>
+			  </a>
+			</div>
+		
+		</div>
+	
+		<div class="col-xs-12 col-md-4 col-lg-6">
+			<ul class="nav nav-tabs" id="product">
+			  <li class="active" id="buyingLi"><a href="#buying" data-toggle="tab" id="buyingTab">Compra</a></li>
+			  <li id="descriptionLi"><a href="#details" data-toggle="tab" id="descriptionTab">Detalles</a></li>
+				<li id="preguntasLi"><a href="#preguntas" data-toggle="tab" id="preguntasTab">Preguntas previas</a></li>
+			</ul>
+		
+			<div class="tab-content">
+			  <div class="tab-pane active" id="buying">
+					
+					<div class="col-md-4 col-lg-7" >	
+						<p class="lead text-left">
+							<strong>Encuéntrala en <%= @bicycle.city %></strong>
+						</p>
+					</div>
+					
+					<%= form_tag comprar_bicicleta_path(@bicycle), id: "site_wide_search_form", class: "form-horizontal", method: :get do %>
+					
+					<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-2">
+							<%= submit_tag "Comprar", :class => "btn btn-default"%>
+						</div>
+					</div>
+					
+					<% end %>
+				</div>
+			  <div class="tab-pane" id="details">
+				  	
+						<div class="col-md-4 col-lg-6" >
+							<p class="lead text-left">
+								<strong>estado:</strong>
+								<%= @bicycle.new %>
+							</p>
+						</div>
+						
+						<div class="col-md-4 col-lg-6" >
+							<p class="lead text-left">
+								<strong>marca:</strong>
+								<%= @bicycle.brand_id %>
+							</p>
+						</div>
+					
+						<div class="col-md-4 col-lg-6" >
+							<p class="lead text-left">
+								<strong>modelo:</strong>
+								<%= @bicycle.model_id %>
+							</p>
+						</div>
+						
+						<div class="col-md-4 col-lg-6" >
+							<p class="lead text-left">
+								<strong>tipo:</strong>
+								<%= @bicycle.category_id %>
+							</p>
+						</div>
+
+						<div class="col-md-4 col-lg-6" >
+							<p class="lead text-left">
+								<strong>año:</strong>
+								<%= @bicycle.year %>
+							</p>
+						</div>
+						
+						<div class="col-md-4 col-lg-6" >	
+							<p class="lead text-left">
+								<strong>precio:</strong>
+								<%= @bicycle.amount %>
+							</p>
+						</div>
+						
+						<div class="col-md-8 col-lg-6" >	
+							<p class="lead text-left">
+								<strong>descripcion:</strong>
+								<%= @bicycle.description %>
+							</p>
+						</div>
+				
+				</div>
+				
+			  <div class="tab-pane" id="preguntas">
+				  	
+						{{ $product->comments }}
+				
+				</div>
+				
+			</div>
+		</div>
+		
+		
+	</div>
+	
+	<div class="row comments">
+		<h3 class="text-left">Preguntas al vendedor</h3>
+		{{ View::make('comments.new', array('product' => $product)) }}
+	</div>
+	
+	
+	</div> 
+	
+	
+</div>
+
+
+<script type="text/javascript">
+ 
+$(function() {
+    $('.carousel-home').carousel({
+	  interval: 2000
+	});
+	
+});
+
+$(document).ready(function()
+		{
+			
+			if ($.cookie("tab") == "details"){
+				$('#details').tab('show');
+				
+			}
+			
+			$('#buyingTab').click(function(){
+				$.cookie("tab", "compra");
+			});
+			
+			$('#descriptionTab').click(function(){
+			  $.cookie("tab", "details");
+			});
+			
+			$('#preguntasTab').click(function(){
+			  $.cookie("tab", "preguntas");
+			});
+			
+		});
+
+</script>

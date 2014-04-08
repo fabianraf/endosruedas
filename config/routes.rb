@@ -8,13 +8,17 @@ Endosruedas::Application.routes.draw do
       resources :productos, :to => "products"
   end
 
-  resources :comprar, :to => "products", :only => [:index] do 
-    collection do
-      get "bicicletas"
-      get "motocicletas"
+  resources :bicicletas, :to => "products", :only => [:index, :show] do 
+    member do
+      put "comprar"
     end
+  end
+  
+  resource :buscar, :to => "search", only: [:show] do 
 
   end
+  # resource :bicicletas, :to => "products"
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
