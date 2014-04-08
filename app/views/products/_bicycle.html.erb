@@ -1,0 +1,11 @@
+		 <div class="col-md-6 col-lg-4 galery" > 
+			<% if bicycle.bicycle_images.present? && bicycle.bicycle_images.count > 0 %>
+        <%= link_to image_tag(bicycle.bicycle_images.last.file.main.url, class: "galeryImg"), bicicleta_path(bicycle)  %>
+			<% else %>
+			
+			<% end %>
+		 	<p>marca: <%= bicycle.brand_id %></p>
+			<p>modelo: <%= bicycle.model_id %></p>
+			<p>precio: <%= bicycle.amount %></p>
+		 	
+		 </div> 

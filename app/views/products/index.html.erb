@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="row">
+		<h3 class="text-center">Encuentra la bicicleta que tu necesitas</h3>
+	</div>
+	
+	<%= render :partial => "shared/search"%>
+			
+	<div class="row">
+		
+  	<% @bicycles.each_with_index do |bicycle, index| %>
+	      <%= render :partial => "bicycle", locals: {bicycle: bicycle, index: index} %>
+		<% end %>
+		
+		
+	</div>
+	<div class="row"> 
+		<%= will_paginate(@bicycles)%> 
+	</div> 
+</div>
