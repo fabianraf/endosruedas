@@ -22,24 +22,47 @@ class Admin::ProductsController < Admin::BaseController
   def create
     case params[:producto]
     when "bicicleta"
-      @bycicle = Bicycle.new(params[:bicycle])
+      @bicycle = Bicycle.new(params[:bicycle])
       respond_to do |format|
-        if @bycicle.save
+        if @bicycle.save
           format.html { redirect_to admin_productos_path, notice: 'Bicycle was successfully created.' }
         else
-          format.html { render action: "new" }
-          format.json { render json: @bycicle.errors, status: :unprocessable_entity }
+          format.html { render action: "publish" }
+          @motorcycle = Motorcycle.new
+          format.json { render json: @bicycle.errors, status: :unprocessable_entity }
         end
       end
 
     when "motocicleta"
-      @motorcycle = Motorcycle.new(params[:bicycle])
+      @motorcycle = Motorcycle.new(params[:motorcycle])
+      respond_to do |format|
+        if @motorcycle.save
+          format.html { redirect_to admin_productos_path, notice: 'Motorcycle was successfully created.' }
+        else
+          format.html { render action: "publish" }
+          @bicycle = Bicycle.new
+          p @motorcycle.errors.inspect
+          format.json { render json: @motorcycle.errors, status: :unprocessable_entity }
+        end
+      end
     end
 
   end     
 
 
   def edit
+    if @product.is_bicycle?
+       render :edit_bicycle 
+    elsif @product.is_motorcycle?
+       render :edit_motorcycle 
+    end
+  end
+  
+  def edit_bicycle
+    
+  end
+  
+  def edit_motorcycle
     
   end
 
