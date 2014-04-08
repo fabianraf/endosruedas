@@ -1,0 +1,100 @@
+
+			
+				<div class="form-group">
+					<%= form_motorcycle.label :title, "Título", :class => "col-sm-1 control-label"%>
+			    <div class="col-sm-11">
+						<%= form_motorcycle.text_field :title, :class => "form-control", :placeholder => "Título" %>
+			    </div>
+				</div>
+				
+			  <div class="form-group">
+					<%= form_motorcycle.label :new, "Articulo", :class => "col-sm-1 control-label"%>
+				    <div class="col-sm-3">
+				      <%= form_motorcycle.text_field :new, :class => "form-control" %>
+				    </div>
+						<%= form_motorcycle.label :category_id, "Tipo", :class => "col-sm-1 control-label"%>
+				    <div class="col-sm-3">
+							<%= form_motorcycle.text_field :category_id, :class => "form-control" %>
+				      <!-- {{ Form::select('type' , array('montañera','carrera', 'paseo', 'bici-cross', 'bmx', 'otros'), '', array('class' => 'form-control')) }} -->
+				    </div>
+						<%= form_motorcycle.label :brand_id, "Marca", :class => "col-sm-1 control-label"%>
+				    <div class="col-sm-3">
+							<%= form_motorcycle.text_field :brand_id, :class => "form-control" %>
+				    
+				    </div>
+			  </div>
+			  
+			  <div class="form-group">
+					<%= form_motorcycle.label :model_id, "Modelo", :class => "col-sm-1 control-label"%>
+			    <div class="col-sm-3">
+						<%= form_motorcycle.text_field :model_id, :class => "form-control" %>
+			    </div>
+					<%= form_motorcycle.label :year, "Año", :class => "col-sm-1 control-label"%>
+			    <div class="col-sm-3">
+			    		<%= form_motorcycle.select :year, options_for_select((Time.now.year.to_i.downto(1990)).map {|i| [i,i] }), {:prompt => "Selecciona un año"}, {:class => "form-control"}%>
+			    </div>
+					<%= form_motorcycle.label :city, "Ciudad", :class => "col-sm-1 control-label"%>
+			    <div class="col-sm-3">
+						<%= form_motorcycle.text_field :city, :class => "form-control", :placeholder => "Ciudad" %>
+			    </div>
+			  </div>
+			  
+			  
+			  <div class="form-group">
+					<%= form_motorcycle.label :mileage, "Kilometraje", :class => "col-sm-1 control-label"%>
+			    <div class="col-sm-3">
+						<%= form_motorcycle.text_field :mileage, :class => "form-control" %>
+			    </div>
+					<%= form_motorcycle.label :cylinder_capacity, "Cilindraje", :class => "col-sm-1 control-label"%>
+			    <div class="col-sm-3">
+			    		<%= form_motorcycle.text_field :cylinder_capacity, :class => "form-control" %>
+			    </div>
+					<%= form_motorcycle.label :fuel_id, "Combustible", :class => "col-sm-1 control-label"%>
+			    <div class="col-sm-3">
+						<%= form_motorcycle.text_field :fuel_id, :class => "form-control", :placeholder => "Ciudad" %>
+			    </div>
+			  </div>
+			  
+			  
+			  <div class="form-group">  
+					<%= form_motorcycle.label :speed_id, "Velocidades", :class => "col-sm-1 control-label"%>
+				    <div class="col-sm-3">
+							<%= form_motorcycle.text_field :speed_id, :class => "form-control", :placeholder => "Reemplazar por dropdown" %>
+				    </div>
+						<%= form_motorcycle.label :amount, "Precio", :class => "col-sm-1 control-label"%>
+				    <div class="col-sm-3">
+							<%= form_motorcycle.text_field :amount, :class => "form-control", :placeholder => "Precio" %>
+				    </div>
+
+			  </div>
+			  
+			  <div class="form-group">  
+					<%= form_motorcycle.label "Imagenes", :class => "col-sm-1 control-label" %>
+					<% index = 1 %>
+					<%= form_motorcycle.fields_for :motorcycle_images do |mo| %>
+						<%= label_tag "file#{index}", "", :class => "col-sm-1 control-label" if index > 1%>
+						<div class="col-sm-3">
+							<%= mo.file_field  :file, :class => "file small-height", :id => "file#{index}" %>
+				      		<!-- {{ Form::file('files[picture1]', array('multiple'=>true, 'id' => 'file1', 'class'=>"file" )); }} -->
+				    	</div>
+						<% index += 1%>
+					<% end %>
+				</div>
+			  <div class='hidden-phone hidden-tablet form-group ' id="previewMotorcycleGroup">
+			  	  <% index = 1 %>
+					<%= form_motorcycle.fields_for :motorcycle_images do |mo| %>
+			      		<div class="col-sm-1"></div>
+			      		<div class="col-sm-3">
+						  <%= mo.label :div,  :id => "prev_file#{index}" %>
+						</div>
+						<% index += 1%>
+					<% end %>
+			  </div>
+			  <div class="form-group">
+					<%= form_motorcycle.label :description, "Descripción", :class => "col-sm-1 control-label"%>
+			    <div class="col-sm-11">
+					<%= form_motorcycle.text_area :description, :class => "form-control", :placeholder => "Pon aquí información como número de velocidades, marca de freno, aros, para hombre/mujer , tamaño, cuadro, etc"%>
+			    </div>
+			   
+			  </div>
+			  
