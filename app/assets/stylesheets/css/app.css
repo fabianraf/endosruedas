@@ -5,8 +5,7 @@ body{
 	 margin: 0px 0px 0px 0px;
 	 padding: 0px 0px 0px 0px;
 }
-body,html,label,h1,h2,h3,h4,h5,a,p,ul,li,label,strong,span,input{
-	 
+body,html,label,a,p,ul,li,label,strong,span,input{
 	 font-family: 'Helvetica';
 	 font-size: 13px ;
 	 /*color: white; */
