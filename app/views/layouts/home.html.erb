@@ -135,8 +135,15 @@
 				</div>
 			</div>
 		</div>
-		
-<%= yield %>
+
+		<div class="container">
+			<div class="row">
+				<%= render "shared/left_sidebar" %> <!-- this has col 2 -->
+				<div class="col-md-9 ">
+					<%= yield %>
+				</div>	
+			</div>
+		</div>
 
 
 		<div class="info-row text-white">

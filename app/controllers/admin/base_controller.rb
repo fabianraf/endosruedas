@@ -1,5 +1,5 @@
 class Admin::BaseController < ApplicationController
-  # layout 'admin'
+  layout 'home_admin'
   before_filter :authenticate_user!
   
   private
