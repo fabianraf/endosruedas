@@ -110,6 +110,8 @@ GEM
     ffi (1.9.3)
     font-awesome-sass (4.0.3.1)
       sass (~> 3.2)
+    friendly_id (4.0.10.1)
+      activerecord (>= 3.0, < 4.0)
     gherkin (2.12.2)
       multi_json (~> 1.3)
     hike (1.2.3)
@@ -290,6 +292,7 @@ DEPENDENCIES
   factory_girl
   factory_girl_rails
   font-awesome-sass
+  friendly_id
   jquery-rails
   kramdown
   mini_magick
