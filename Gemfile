@@ -26,7 +26,7 @@ gem 'kramdown'
 gem 'nokogiri'
 gem 'neat'
 gem 'sidekiq'
-
+gem 'friendly_id'
 
 # Gems used only for assets and not required
 # in production environments by default.
