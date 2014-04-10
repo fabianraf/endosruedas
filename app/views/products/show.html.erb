@@ -140,7 +140,7 @@
 	
 	<div class="row comments">
 		<h3 class="text-left">Preguntas al vendedor</h3>
-		{{ View::make('comments.new', array('product' => $product)) }}
+		<%= render partial: "new_comment" %>
 	</div>
 	
 	

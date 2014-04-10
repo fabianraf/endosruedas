@@ -1,0 +1,38 @@
+{{ Form::open(array('url' => 'crear/comentario/'.$product->id ,'class' => 'form-horizontal' ,'files' => true, 'id'=>'validateForm')) }}
+
+  <?php if (Auth::check() == 0){ ?>
+	<div class="form-group">
+			{{ Form::label('nombre', 'Nombre', array('class' => 'col-sm-offset-3 col-sm-1 control-label')) }}
+
+	    <div class=" col-sm-5">
+	     {{ Form::text('name', Input::old('name'), array('class' => 'form-control', 'placeholder'=>'')) }}
+	    </div>
+
+  </div>
+	
+  <div class="form-group">
+			{{ Form::label('email', 'Email', array('class' => 'col-sm-offset-3 col-sm-1 control-label')) }}
+
+	    <div class=" col-sm-5">
+	     {{ Form::text('email', Input::old('email'), array('class' => 'form-control', 'placeholder'=>'')) }}
+	    </div>
+
+  </div>
+	
+	<?php } ?>
+	<div class="form-group">
+			{{ Form::label('comment', 'Pregunta', array('class' => 'col-sm-offset-3 col-sm-1 control-label')) }}
+  		<!-- {{ Form::label('is_new', 'Articulo', array('class' => 'col-sm-1 control-label')); }} -->
+	    <div class=" col-sm-5">
+	     {{ Form::textarea('comment', Input::old('comment'), array('class' => 'form-control', 'rows' => 3, 'placeholder'=>'¿Qué deseas saber?')) }}
+			</div>
+			
+  </div>
+	<div class="form-group">
+		<div class="col-sm-offset-8 col-sm-2">
+			{{ Form::submit('Pregunta', array('class' => 'btn btn-default')) }}
+		</div>
+	</div>
+					
+	
+	{{ Form::close() }}

@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
   skip_before_filter :require_no_authentication, :only => [:new, :create]
-  layout 'home'
+
   def new
     session[:return_to] ||= request.referrer
     super
