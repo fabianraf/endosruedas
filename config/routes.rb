@@ -4,7 +4,9 @@ Endosruedas::Application.routes.draw do
   devise_for :users, :controllers => { :sessions => "sessions", :registration => 'registration' }
 
   namespace :admin do
-      get 'publicar', :to => "products#publish"
+      get 'publicar_bici', :to => "products#publish_bicycle"
+      get 'publicar_moto', :to => "products#publish_motorcycle"
+      
       resources :productos, :to => "products"
   end
 
