@@ -11,12 +11,22 @@
                 
     });
     $('#passwordGroup').hide();
+    
+    $('#cancelAccount').change(function() {
+        if($(this).is(":checked")) {
+          $('#accountCancel').show();
+        }else{
+          $('#accountCancel').hide();
+        }
+                
+    });
+    $('#accountCancel').hide();
 
 
     </script>
 <% end %>
 
-<div class="container">
+
   
     <h2>
       Perfil
@@ -82,12 +92,19 @@
             <%= f.submit "Actualizar", :class => "btn btn-default" %>
           </div>
         </div>
-        
-        <h3>Cancel my account</h3>
 
-        <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-        <%= link_to "Back", :back %>
-
-    <% end %>
-</div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">¿Cancelar cuenta?</label>
+            <div class="col-sm-1">
+            <%= check_box_tag :cancelAccount, '', false, :id => "cancelAccount" %>
+             </div>
+        </div>
+        <div id="accountCancel">
+			<div class="col-md-12">
+		        <p><%#= link_to "Regresar", :back%>
+		        <%= button_to "Quiero cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete , :class => "btn btn-default"%>	
+		        </p>
+			</div>
+		</div>
+<% end %> <!-- entiendo este end es del formulario-->
+		

@@ -32,9 +32,12 @@
 				<div class="collapse navbar-collapse" id="navbar-menu">
 					<ul class="nav navbar-nav">
 						<% if user_signed_in? %>
-							<li>
-	            	<%= link_to "Publica tu Producto", admin_publicar_path %>
-							</li>
+						<li>
+	            			<%= link_to "Publica tu Motocicleta", admin_publicar_moto_path %>
+						</li>
+						<li>
+	            			<%= link_to "Publica tu Bicicleta", admin_publicar_bici_path %>
+						</li>
 						<% end %>
 						<!-- 		        <li class="divider-vertical"></li> -->
 						<li>

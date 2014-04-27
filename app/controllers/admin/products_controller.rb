@@ -9,14 +9,18 @@ class Admin::ProductsController < Admin::BaseController
   def show
 
   end
-
-  def publish
-    #New Bicycle
-    @bicycle = Bicycle.new
-    6.times {@bicycle.bicycle_images.build}
+  
+  
+  def publish_motorcycle
     #New Motorcycle
     @motorcycle = Motorcycle.new
     6.times {@motorcycle.motorcycle_images.build}
+  end
+  
+  def publish_bicycle
+    #New Bicycle
+    @bicycle = Bicycle.new
+    6.times {@bicycle.bicycle_images.build}
   end
   
   def create
