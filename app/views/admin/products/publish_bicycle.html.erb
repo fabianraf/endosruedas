@@ -1,0 +1,35 @@
+<% content_for :page_specific_javascript do %>
+<%= javascript_include_tag "js/jquery/jquery.preimage.js" %>
+<script type="text/javascript">
+		
+		$(document).ready(function()
+				{
+					
+					// preview images
+					$('.file').preimage();
+					$('#previewBicycleGroup').hide();
+					$('.file').change(function() {
+				    	$('#previewBicycleGroup').show();
+					});
+					
+				});
+
+</script>
+<% end %>
+
+	
+		<h2>
+		  Publica tu bicicleta
+		</h2>
+	  
+	  <%= form_for([:admin, @bicycle], :url => admin_productos_path(:producto => "bicicleta"), :html => {:class => "form-horizontal"}) do |f| %>
+	    <%= render :partial => 'form_bicycle', :object => f %>
+	    <div class="form-group">
+		    <div class="col-sm-offset-11 col-sm-1">
+				<%= f.submit "Publicar", :class => "btn btn-default"%>
+	    	</div>
+	  	</div>
+	  <% end %>
+
+
+
