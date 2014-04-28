@@ -6,7 +6,7 @@
 	<div class="row">
 		
   	<% @bicycles.each_with_index do |bicycle, index| %>
-	      <%= render :partial => "bicycle", locals: {bicycle: bicycle, index: index} %>
+	      <%= render :partial => "products/bicycle", locals: {bicycle: bicycle, index: index} %>
 		<% end %>
 		
 		

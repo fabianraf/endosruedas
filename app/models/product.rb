@@ -27,5 +27,15 @@ class Product < ActiveRecord::Base
     true
   end
   
+  def search(params)
+    conditions = []
+    conditions << [ "status = ?", params[:status] ] if params[:status].present?
+    conditions << [ "brand = ?", params[:brand] ] if params[:brand].present?
+    conditions << [ "model = ?", params[:model] ] if params[:model].present?
+    conditions << [ "type = ?", params[:type] ] if params[:type].present?
+    conditions << [ "city = ?", params[:city] ] if params[:city].present?
+    conditions << [ "amount = ?", params[:amount] ] if params[:amount].present?
+    find(:all, :conditions => conditions )
+  end
 
 end

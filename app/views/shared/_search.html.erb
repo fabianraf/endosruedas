@@ -1,28 +1,32 @@
 <%= form_tag buscar_path, id: "site_wide_search_form", class: "form-horizontal", method: :get do %>
   <div class="form-group">
-			<%= label_tag "Articulo", "Articulo",{class: "col-sm-3 control-label"} %>
+  		<%= label_tag "product", "Producto",{class: "col-sm-3 control-label"} %>
 	    <div class="col-sm-9">
-				<%= select_tag "search_term", {}, {class: "form-control input-sm"} %>
+	    	<%= select_tag "product", options_for_select(["bicicleta","motocicleta"]), {class: "form-control input-sm"} %>
 	    </div>
-			<%= label_tag "marca", "Marca",{class: "col-sm-3 control-label"} %>
+		<%= label_tag "status", "Articulo",{class: "col-sm-3 control-label"} %>
 	    <div class="col-sm-9">
-				<%= select_tag "search_term_marca", {}, {class: "form-control input-sm"} %>
+			<%= select_tag "status", {}, {class: "form-control input-sm"} %>
 	    </div>
-			<%= label_tag "modelo", "Modelo",{class: "col-sm-3 control-label"} %>
+		<%= label_tag "brand", "Marca",{class: "col-sm-3 control-label"} %>
 	    <div class="col-sm-9">
-				<%= select_tag "search_term", {}, {class: "form-control input-sm"} %>
+			<%= select_tag "brand", {}, {class: "form-control input-sm"} %>
 	    </div>
-			<%= label_tag "tipo", "Tipo",{class: "col-sm-3 control-label"} %>
+		<%= label_tag "model", "Modelo",{class: "col-sm-3 control-label"} %>
 	    <div class="col-sm-9">
-				<%= select_tag "search_term", {}, {class: "form-control input-sm"} %>
+			<%= select_tag "model", {}, {class: "form-control input-sm"} %>
 	    </div>
-			<%= label_tag "ciudad", "Ciudad",{class: "col-sm-3 control-label"} %>
+		<%= label_tag "type", "Tipo",{class: "col-sm-3 control-label"} %>
 	    <div class="col-sm-9">
-				<%= text_field_tag "ciudad", "", {class: "form-control input-sm", placeholder: "Ciudad"} %>
+			<%= select_tag "type", {}, {class: "form-control input-sm"} %>
 	    </div>
-			<%= label_tag "precio", "Precio",{class: "col-sm-3 control-label"} %>
+		<%= label_tag "city", "Ciudad",{class: "col-sm-3 control-label"} %>
 	    <div class="col-sm-9">
-				<%= text_field_tag "search_precio", "", {class: "form-control input-sm", placeholder: "Precio"} %>
+			<%= text_field_tag "city", "", {class: "form-control input-sm", placeholder: "Ciudad"} %>
+	    </div>
+		<%= label_tag "amount", "Precio",{class: "col-sm-3 control-label"} %>
+	    <div class="col-sm-9">
+			<%= text_field_tag "amount", "", {class: "form-control input-sm", placeholder: "Precio"} %>
 	    </div>
    </div>
   
