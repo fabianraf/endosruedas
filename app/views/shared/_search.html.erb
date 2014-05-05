@@ -1,40 +1,46 @@
-<%= form_tag buscar_path, id: "site_wide_search_form", class: "form-horizontal", method: :get do %>
+<%= search_form_for @q, url: search_buscar_path, html: { method: :post }  do |f| %>
+  
   <div class="form-group">
-  		<%= label_tag "product", "Producto",{class: "col-sm-3 control-label"} %>
-	    <div class="col-sm-9">
-	    	<%= select_tag "product", options_for_select(["bicicleta","motocicleta"]), {class: "form-control input-sm"} %>
-	    </div>
-		<%= label_tag "status", "Articulo",{class: "col-sm-3 control-label"} %>
-	    <div class="col-sm-9">
-			<%= select_tag "status", {}, {class: "form-control input-sm"} %>
-	    </div>
-		<%= label_tag "brand", "Marca",{class: "col-sm-3 control-label"} %>
-	    <div class="col-sm-9">
-			<%= select_tag "brand", {}, {class: "form-control input-sm"} %>
-	    </div>
-		<%= label_tag "model", "Modelo",{class: "col-sm-3 control-label"} %>
-	    <div class="col-sm-9">
-			<%= select_tag "model", {}, {class: "form-control input-sm"} %>
-	    </div>
-		<%= label_tag "type", "Tipo",{class: "col-sm-3 control-label"} %>
-	    <div class="col-sm-9">
-			<%= select_tag "type", {}, {class: "form-control input-sm"} %>
-	    </div>
-		<%= label_tag "city", "Ciudad",{class: "col-sm-3 control-label"} %>
-	    <div class="col-sm-9">
-			<%= text_field_tag "city", "", {class: "form-control input-sm", placeholder: "Ciudad"} %>
-	    </div>
-		<%= label_tag "amount", "Precio",{class: "col-sm-3 control-label"} %>
-	    <div class="col-sm-9">
-			<%= text_field_tag "amount", "", {class: "form-control input-sm", placeholder: "Precio"} %>
-	    </div>
-   </div>
+  	<%= label_tag "product", "Producto",{class: "col-sm-3 control-label"} %>
+    <div class="col-sm-9">
+    	<%= select_tag "product", options_for_select(["bicicleta","motocicleta"]), {class: "form-control input-sm"} %>
+    </div>
+    <%= f.label :status_eq ,"Estado" ,{class: "col-sm-3 control-label"} %>
+  	<div class="col-sm-9">
+  		<%= f.text_field :status_eq , {class: "form-control input-sm", placeholder: "Estado"} %>
+  	</div>
+  	<%= f.label :brand_id_eq ,"Marca" ,{class: "col-sm-3 control-label"} %>
+  	<div class="col-sm-9">
+  		<%= f.text_field :brand_id_eq , {class: "form-control input-sm", placeholder: "Marca"} %>
+  	</div>
+  	<%= f.label :model_id_eq ,"Modelo" ,{class: "col-sm-3 control-label"} %>
+  	<div class="col-sm-9">
+  		<%= f.text_field :model_id_eq , {class: "form-control input-sm", placeholder: "Modelo"} %>
+  	</div>
+  	<%= f.label :status_eq ,"Tipo" ,{class: "col-sm-3 control-label"} %>
+  	<div class="col-sm-9">
+  		<%= f.text_field :status_eq , {class: "form-control input-sm", placeholder: "Tipo"} %>
+  	</div>
+  	<%= f.label :city_eq ,"Ciudad" ,{class: "col-sm-3 control-label"} %>
+  	<div class="col-sm-9">
+  		<%= f.text_field :city_eq , {class: "form-control input-sm", placeholder: "Ciudad"} %>
+  	</div>
+  	<%= f.label :amount_gteq ,"Precio" ,{class: "col-sm-3 control-label"} %>
+  	<div class="col-sm-9">
+  		<%= f.text_field :amount_gteq , {class: "form-control input-sm", placeholder: "Desde"} %>
+  	</div>
+  	<div class="col-sm-3 control-label"></div>
+  	<div class="col-sm-9">
+  		<%= f.text_field :amount_lteq , {class: "form-control input-sm", placeholder: "Hasta"} %>
+  	</div>
+	
+  </div>
   
   
   <div class="form-group">
-    <div class="col-sm-offset-8 col-sm-4">
-			<%= submit_tag "Buscar", class: "btn btn-default"%>
+    <div class="col-sm-offset-7 col-sm-5">
+			<%= f.submit "Search" , class: "btn btn-default"%> 
     </div>
   </div>
-	
+  
 <% end %>
