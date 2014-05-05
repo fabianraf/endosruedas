@@ -16,8 +16,10 @@ Endosruedas::Application.routes.draw do
     end
   end
   
-  resource :buscar, :to => "search", only: [:show] do 
-
+  resource :buscar do 
+    collection do
+      match 'search' => 'products#search', via: [ :post], as: :search
+    end
   end
   # resource :bicicletas, :to => "products"
   
