@@ -66,6 +66,9 @@ float: right;
 .text-white{
 	color: white;
 }
+.text-white label, .text-white a, .text-white p, .text-white ul, .text-white li, .text-white label, .text-white strong, .text-white span, .text-white input{
+	color: white;
+}
 .text-small{
 	font-size:small;
 }
