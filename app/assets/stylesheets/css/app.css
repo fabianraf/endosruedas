@@ -16,26 +16,32 @@ body,html,label,a,p,ul,li,label,strong,span,input{
  min-height:100%;
 } */
 .backgroundImg{
-	 /* background: url(../img/endosruedas1577x555.jpg) no-repeat center bottom scroll; 
+	  background: url(../img/home.png) no-repeat center bottom scroll; 
 	  display:block;
-	  height: 555px;
-	  width:100%;
-	  */
+	  height: 400px;
+	  width: 640px;
+	  
 	  
 }
 .icon-container{
-	 margin: 50px 0px 0px 50px;
+	 margin: 10px 0px 20px 140px;
 	  
 }
 .motorcycle-icon{
-	background: url(../img/icono-2.png) no-repeat center top scroll;
-	height: 150px;
-	width:45%;
+	background: url(../img/bot2.png) no-repeat center top scroll;
+	height: 215px;
+	width:215px;
+	position: relative;
+	top: 150px;
+	left: 28px;
 }
 .bicycle-icon{
-	background: url(../img/icono-1.png) no-repeat center top  scroll;
-	height: 150px;
-	width:45%;
+	background: url(../img/bot1.png) no-repeat center top  scroll;
+	height: 215px;
+	width:215px;
+	position: relative;
+	top: 150px;
+	left: 48px;
 }
 
 .logo{
