@@ -1,0 +1,50 @@
+<div class="col-md-12 visible-desktop">
+	 <div class="col-md-12">
+		<h2>Contáctanos.</h2>
+		<h3>Envíanos tus opiniones y sugerencias.</h3>
+	 </div>
+		
+	<%= form_tag( url: contactanos_path, html: {class: "form-horizontal"}) do  %>
+	  <div class="form-group">
+		 <div class="col-sm-10">
+		 	<div class="form-group">
+		  		<%= label( :p, "name", "Nombre", {class: "col-sm-4 control-label"})%>
+			    <div class="col-sm-8">
+			      <%= text_field( :p, "name", class: "form-control", placeholder: "Nombre" ) %>
+			    </div>
+		    </div>
+		    <div class="form-group">
+			    <%= label :p,"email", "Correo Electrónico", {class: "col-sm-4 control-label"}%>
+			    <div class="col-sm-8">
+			      <%= email_field :p,"email", {class: "form-control", placeholder: "Correo Electrónico"} %>
+			    </div>
+		    </div>
+		    <div class="form-group">
+				 <%= label :p, "telephone", "Teléfono", {class: "col-sm-4 control-label"}%>
+			    <div class="col-sm-8">
+			      <%= text_field :p, "telephone",{class: "form-control", placeholder: "Teléfono"} %>
+			    </div>
+		    </div>
+		    <div class="form-group">
+				<%= label :p , "city", "Ciudad", {class: "col-sm-4 control-label"}%>
+			    <div class="col-sm-8">
+			      <%= text_field :p, "city", {class: "form-control", placeholder: "Ciudad"} %>
+		    	</div>
+		    </div>
+		    <div class="form-group">
+				<%= label :p, "description", "Description", {class: "col-sm-4 control-label"}%>
+			    <div class="col-sm-8">
+			      <%= text_area :p, "description", {class: "form-control", placeholder: "Description"} %>
+		    	</div>
+			</div>
+		    <div class="form-group">
+			    <div class="col-sm-offset-11 col-sm-1">
+			      <%= submit_tag "Enviar", :class => "btn btn-default"%>
+			    </div>
+			</div>
+		  </div>
+		</div>
+	  <% end %>
+</div>	
+
+	
