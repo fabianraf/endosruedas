@@ -13,7 +13,9 @@ Endosruedas::Application.routes.draw do
   resources :bicicletas, :to => "products", :only => [:index, :show] do 
     member do
       put "comprar"
+      post "comentar", :to => "products#comentar"
     end
+    
   end
   
   resource :buscar do 

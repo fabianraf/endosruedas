@@ -1,6 +1,6 @@
 		 <div class="col-md-6 col-lg-4 galery" > 
 			<% if bicycle.bicycle_images.present? && bicycle.bicycle_images.count > 0 %>
-        <%= link_to image_tag(bicycle.bicycle_images.last.file.main.url, class: "galeryImg"), bicicleta_path(bicycle)  %>
+        			<%= link_to image_tag(bicycle.bicycle_images.last.file.main.url, class: "galeryImg"), bicicleta_path(bicycle)  %>
 			<% else %>
 			
 			<% end %>

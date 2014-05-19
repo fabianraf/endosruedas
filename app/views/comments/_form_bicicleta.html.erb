@@ -1,0 +1,23 @@
+ 
+<% unless user_signed_in? %>
+	<div class="form-group">
+		<%= form.label :name, "Nombre", :class => "col-sm-offset-3 col-sm-1 control-label"%>
+		<div class=" col-sm-5">
+			<%= form.text_field :name, :class => "form-control", :placeholder => "nombre"%>
+		</div>
+	</div>
+		
+	<div class="form-group">
+		<%= form.label :email, "Email", :class => "col-sm-offset-3 col-sm-1 control-label"%>
+		<div class=" col-sm-5">
+	     		<%= form.text_field :email, :class => "form-control", :placeholder => "email"%>
+	    	</div>
+	</div>
+<% end %>
+	
+<div class="form-group">
+	<%= form.label :comment, "Pregunta", :class => "col-sm-offset-3 col-sm-1 control-label"%>
+	<div class=" col-sm-5">
+    		<%= form.text_area :comment, :class => "form-control", :rows => 3, :placeholder => "¿Qué deseas saber?"%>
+     </div>	
+</div>

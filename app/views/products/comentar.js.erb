@@ -1,0 +1,11 @@
+$(".error").html('');
+<% if @comment.errors.present? %>
+	$(".error").append("<h4>Han habido errores en tu pregunta :(</h4>");
+	<% @comment.errors.full_messages.each do |msg| %>
+		$(".error").append("<li><%= msg %></li>");
+	<% end %>	
+<% else %>
+	$(".error").append("<h4>Tu pregunta ha sido enviada exitosamente :)</h4>");
+	$("#preguntas").append('<%= escape_javascript(render :partial => "/comments/comment", :locals => {:comment => @comment}) %>')
+	$("#new_comment")[0].reset();
+<% end %>
