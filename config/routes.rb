@@ -21,6 +21,9 @@ Endosruedas::Application.routes.draw do
       match 'search' => 'products#search', via: [ :post], as: :search
     end
   end
+  
+  get :contactanos, :to => "contact_us#show"
+  post  :contactanos, :to => "contact_us#sendEmail"
   # resource :bicicletas, :to => "products"
   
   
