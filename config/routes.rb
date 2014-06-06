@@ -25,7 +25,7 @@ Endosruedas::Application.routes.draw do
   end
   
   get :contactanos, :to => "contact_us#show"
-  post  :contactanos, :to => "contact_us#sendEmail"
+  post  :contactanos, :to => "contact_us#contact_us_thanks"
   # resource :bicicletas, :to => "products"
   
   
