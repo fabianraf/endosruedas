@@ -57,7 +57,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'capistrano'
+  gem 'capistrano', '~> 2.15'
 end
 
 # To use ActiveModel has_secure_password
