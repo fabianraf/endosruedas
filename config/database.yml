@@ -16,8 +16,8 @@ preview:
   encoding: utf8
   database: endosruedas_preview
   pool: 5
-  username: postgres
-  password: 
+  username:  n2r-admin
+  password:  n2r_2014_Admin
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -35,3 +35,5 @@ production:
   database: endosruedas_production
   pool: 5
   timeout: 5000
+  username:  n2r-admin
+  password:  n2r_2014_Admin

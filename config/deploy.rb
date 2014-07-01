@@ -8,7 +8,7 @@ set :scm_passphrase, ""
 global_defaults
 ssh_options[:forward_agent] = true
 set :branch, "master"
-set :git_enable_submodules, 1
+
 
 # ADDED BY Net Theory
 set :stages, ["staging", "preview"]
