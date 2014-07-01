@@ -5,19 +5,26 @@ set :application, "endosruedas"
 set :scm, :git
 set :repository,  "git@github.com:fabianraf/endosruedas.git"
 set :scm_passphrase, ""
-defaults
 global_defaults
+ssh_options[:forward_agent] = true
+set :branch, "master"
+set :git_enable_submodules, 1
 
 # ADDED BY Net Theory
 set :stages, ["staging", "preview"]
 # set :default_stage, "staging"
 
 task :preview do
-  set :rails_env, "staging"
+  set :rails_env, "preview"
   set :user, "deployer"
   server "ec2-54-209-89-208.compute-1.amazonaws.com", :app, :web, :db, :primary => true
   defaults
- 
+  set :default_environment, {'PATH'=> "/usr/local/ruby/bin:$PATH"}
+  set :deploy_via, :remote_cache  
+  set :apache_user, "www-data"
+  set :apache_group, "dev"
+  set :apache_dir, "/etc/apache2"
+  set :apache_config, "/etc/apache2/sites-available"
 end
 
 #

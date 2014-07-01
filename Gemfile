@@ -23,6 +23,7 @@ gem 'font-awesome-sass'
 gem 'bluecloth'
 # subbed for bluecloth
 gem 'kramdown'
+gem 'nokogiri'
 gem 'neat'
 gem 'sidekiq'
 gem 'friendly_id'
