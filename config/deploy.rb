@@ -52,34 +52,5 @@ end
  end
 
 
-namespace :lal do
-  task :sphinx_tasks do
-    run "cd '#{current_path}' && #{rake} ts:configure RAILS_ENV=#{rails_env} && #{sudo} chown www-data:dev #{current_path}/config/#{rails_env}.sphinx.conf" 
-    run "#{sudo} chown -R www-data:dev #{current_path}/tmp/binlog"
-  end  
-  task :set_uploads_link do
-    run "#{sudo} ln -s #{deploy_to}/shared/uploads #{release_path}/public/uploads"
-    run "#{sudo} chown -R #{apache_user}:#{apache_group} #{release_path}/public/uploads"
-  end
-  task :set_ebooks_link do
-    run "#{sudo} ln -s #{deploy_to}/shared/ebooks #{release_path}/ebooks"
-    run "#{sudo} chown -R #{apache_user}:#{apache_group} #{release_path}/ebooks"
-  end
-  task :set_legacy_booktalk_images_link do
-    run "#{sudo} ln -s #{deploy_to}/shared/book_talk_images #{release_path}/public/images/books2"
-    run "#{sudo} chown -R #{apache_user}:#{apache_group} #{release_path}/public/images/books2"
-  end
-  task :set_legacy_pdfs_link do
-    run "#{sudo} ln -s #{deploy_to}/shared/pdfs #{release_path}/public/images/pdfs"
-    run "#{sudo} chown -R #{apache_user}:#{apache_group} #{release_path}/public/images/pdfs"
-  end
-  task :set_catalogs_link do
-    run "#{sudo} ln -s #{deploy_to}/shared/catalogs #{release_path}/public/catalogs"
-    run "#{sudo} chown -R #{apache_user}:#{apache_group} #{release_path}/public/catalogs"
-  end
-  
-  
-end
-
 
 
